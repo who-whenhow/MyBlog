@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm' # 关键：缓存依赖，下次构建速度提升 50% 以上   
 
       # 这里不指定版本，自动读取 package.json 中的 packageManager
       - name: Install pnpm

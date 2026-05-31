@@ -29,3 +29,9 @@ yarn.lock
 # ide
 .idea
 *.iml
+
+# 本地写作自动化脚本
+create_post.py
+写博客.vbs
+发布博客.bat
+publish_blog.py
