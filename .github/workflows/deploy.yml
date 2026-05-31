@@ -16,17 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm' # 关键：缓存依赖，下次构建速度提升 50% 以上   
-
-      # 这里不指定版本，自动读取 package.json 中的 packageManager
+      # 1. 必须【先】安装 pnpm，否则下一步设置缓存时会找不到主程序
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
+
+      # 2. 【后】配置 Node.js，此时 pnpm 已经就绪，缓存功能可以完美开启
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
