@@ -21,17 +21,25 @@ jobs:
         with:
           node-version: 20
 
+      # 这里不指定版本，自动读取 package.json 中的 packageManager
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+        with:
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # --no-check 跳过严格的 TypeScript 检查，保证构建永远成功
+      # 使用 --no-check 跳过类型检查，确保构建顺畅
       - name: Build
         run: pnpm astro build --no-check
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      # 将构建好的 dist 目录打包为制品
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
+
+      # 将制品部署到 GitHub Pages
+      - name: Deploy
+        uses: actions/deploy-pages@v4
