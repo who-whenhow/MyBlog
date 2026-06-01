@@ -16,6 +16,4 @@ draft: false
 
 ---
 ### 🎥 相关视频
-<div style="width: 100%; aspect-ratio: 16 / 9; background: #fcfaf7; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05);">
-  <iframe src="//[player.bilibili.com/player.html?bvid=BV1ooR2BwEym&page=1&high_quality=1](https://player.bilibili.com/player.html?bvid=BV1ooR2BwEym&page=1&high_quality=1)" style="width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
-</div>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1ooR2BwEym&page=1&high_quality=1&danmaku=0" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
